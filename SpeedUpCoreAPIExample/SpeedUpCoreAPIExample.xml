@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpeedUpCoreAPIExample</name>
+    </assembly>
+    <members>
+        <member name="M:SpeedUpCoreAPIExample.Controllers.PricesController.GetPricesAsync(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets Prices by product Id.
+            </summary>
+            <remarks>GET /api/v1/prices/1</remarks>
+            <param name="id">Product's Id.</param>
+            <param name="pageIndex">Index of page to display (if not set, defauld value = 1 - first page is used).</param>
+            <param name="pageSize">Size of page (if not set, defauld value is used).</param>
+            <returns>List of prices swith pagination state</returns>
+            <response code="200">Prices found and returned successfully.</response>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Controllers.PricesController.PreparePricesAsync(System.Int32)">
+            <summary>
+            Prepare Prices by product Id.
+            </summary>
+            <remarks>POST api/v1/prices/prepare/5</remarks>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Controllers.ProductsController.GetAllProductsAsync(System.Int32,System.Int32)">
+            <summary>
+            Gets all Products with pagination.
+            </summary>
+            <remarks>GET /api/v1/products/?pageIndex=1&amp;pageSize=20</remarks>
+            <param name="pageIndex">Index of page to display (if not set, defauld value = 1 - first page is used).</param>
+            <param name="pageSize">Size of page (if not set, defauld value is used).</param>
+            <returns>List of product swith pagination state</returns>
+            <response code="200">Products found and returned successfully.</response>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Controllers.ProductsController.GetProductAsync(System.Int32)">
+            <summary>
+            Gets a Product by Id.
+            </summary>
+            <remarks>GET /api/v1/products/1</remarks>
+            <param name="id">Product's Id.</param>
+            <returns>A Product information</returns>
+            <response code="200">Product found and returned successfully.</response>
+            <response code="404">Product was not found.</response>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Controllers.ProductsController.FindProductsAsync(System.String,System.Int32,System.Int32)">
+            <summary>
+            Find Products by SKU with pagination
+            </summary>
+            <remarks>GET /api/v1/products/find/aaa/?pageIndex=1&amp;pageSize=20</remarks>
+            <param name="sku">Search pattern.</param>
+            <param name="pageIndex">Index of page to display (if not set, defauld value = 1 - first page is used).</param>
+            <param name="pageSize">Size of page (if not set, defauld value is used).</param>
+            <returns>List of product swith pagination state</returns>
+            <response code="200">Products found and returned successfully.</response>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Controllers.ProductsController.DeleteProductAsync(System.Int32)">
+            <summary>
+            Delete a Product by Id.
+            </summary>
+            <remarks>DELETE /api/v1/products/1</remarks>
+            <param name="id">Product's Id.</param>
+            <returns>A Product information</returns>
+            <response code="200">Product found and deleted successfully.</response>
+            <response code="404">Product was not found.</response>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Exceptions.ExceptionsHandlingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Execute Middleware
+            </summary>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Exceptions.ExceptionsHandlingMiddleware.HandleHttpExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,SpeedUpCoreAPIExample.Exceptions.HttpException)">
+            <summary>
+            Handle HTTP exceptions
+            </summary>
+            <param name="context">Current HttpContext.</param>
+            <param name="exception">Custom HTTP exception.</param>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Helpers.SelfHttpClient.PostIdAsync(System.String,System.String)">
+            <summary>
+            Call any controller's action with HttpPost method and Id parameter.
+            </summary>
+            <param name="apiRoute">Relative API route.</param>
+            <param name="id">The parameter.</param>
+        </member>
+        <member name="T:SpeedUpCoreAPIExample.Interfaces.ISelfHttpClient">
+            <summary>
+            HttpClient for application's own controllers access 
+            </summary>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Interfaces.ISelfHttpClient.PostIdAsync(System.String,System.String)">
+            <summary>
+            Call any controller's action with HttpPost method and Id parameter.
+            </summary>
+            <param name="apiRoute">Relative API route.</param>
+            <param name="id">The parameter.</param>
+        </member>
+        <member name="T:SpeedUpCoreAPIExample.Repositories.DistributedCacheRepository`1">
+            <summary>
+            Generic DistributedCache repository class
+            </summary>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Repositories.DistributedCacheRepository`1.GetOrSetValueAsync(System.String,System.Func{System.Threading.Tasks.Task{`0}},Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions)">
+            <summary>
+            Get a value from the cache, or by calling an asynchronous delegate and then caching the value
+            </summary>
+        </member>
+        <member name="M:SpeedUpCoreAPIExample.Services.ProductsService.CallPreparePricesApiAsync(System.String)">
+            <summary>
+            Prepare prices by product's identifier by calling prices/prepare API
+            </summary>
+            <param name="productId">The identifier.</param>
+        </member>
+    </members>
+</doc>
